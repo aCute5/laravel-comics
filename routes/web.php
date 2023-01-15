@@ -20,3 +20,10 @@ Route::get('/', function () {
 Route::get('/guests.layout', function () {
     return view('welcome');
 });
+Route::get('/guests.partials.main', function () {
+    $comics = config('comics');
+    return view('guests.partials.main', [
+        'main' => config('main'),
+        'comics' => $comics,
+    ]);
+})->name('comics');
